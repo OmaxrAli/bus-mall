@@ -16,10 +16,11 @@ let EMG=['bag.jpg','banana.jpg','bathroom.jpg','boots.jpg','breakfast.jpg','bubb
 let stuff = [];
 let SNames=[];
 let Vvotes=[];
-let Vview=[]
+let Vview=[];
 
 let maxAttempts = 25;
 let attempt = 1;
+let storage=[];
 
 
 function busMall(name){
@@ -30,13 +31,12 @@ function busMall(name){
     this.views=0;
     stuff.push(this);
     SNames.push(this.Stuffname);
-   
-
-    
 }
+
 for (let i = 0; i < EMG.length; i++) {
     new busMall(EMG[i]);
 }
+
 
 function getRandom(){
    return  Math.floor( Math.random() * stuff.length);
@@ -96,6 +96,8 @@ ButEl.onclick = function(){
              Vvotes.push(stuff[i].votes);
         }
         clicked = true;
+        savetoLS();
+        chartRender();
     }
     }
 function clickHandler(event) {
@@ -113,12 +115,13 @@ function clickHandler(event) {
         RenderImg();
         console.log(stuff);
         attempt++;
-    } else if(maxAttempts==25||clicked== true){
+    } else if(maxAttempts==25){
        
+        
         AEl.removeEventListener('click', clickHandler);
         BEl.removeEventListener('click', clickHandler);
         CEl.removeEventListener('click', clickHandler);
-        chartRender(); 
+        
     }
     
 }
@@ -166,4 +169,10 @@ function clickHandler(event) {
         }
     }
 });
+}
+
+function savetoLS(){
+    let localS=JSON.stringify(Vvotes);
+    localStorage.setItem('Votes',localS);
+    
 }

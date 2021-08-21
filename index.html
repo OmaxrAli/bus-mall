@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bus Mall</title>
     <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="reset.css"> -->
 </head>
 <body>
     <header>
@@ -19,7 +20,6 @@
 
         <samp id="attempts"></samp>
         <div id="main">
-            <h6></h6>
             
             <img id="A" src="" alt="">
             <img id="B" src="" alt="">
@@ -47,13 +47,16 @@
         Ex, quod fugiat. Molestiae ipsum aspernatur explicabo! Maiores sint suscipit asperiores fugiat ullam eligendi obcaecati, reiciendis officiis .
         </p>
 
-        <button>
+        <button  id="button">
             Result
         </button>
 
     </main>
-    <footer></footer>
+    <footer>
+        <canvas id="myChart" ></canvas>
+    </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
